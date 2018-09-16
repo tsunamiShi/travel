@@ -10,7 +10,7 @@
     >
         <ul>
             <li v-for="item of list" :key="item.id" class="search-item border-bottom">{{item.name}}</li>
-            <li v-show="!list.length" class="search-item border-bottom">没有找到匹配数据</li>
+            <li v-show="hasNoData" class="search-item border-bottom">没有找到匹配数据</li>
         </ul>
     </div>
 </div>
@@ -31,7 +31,7 @@ export default {
         }
     },
     computed: {
-        hasList () {
+        hasNoData () {
             return !this.list.length
         }
     },
