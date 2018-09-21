@@ -3,22 +3,22 @@
         <div class="banner" @click="handleBannerClick">
             <img
                 class="banner-img"
-                src="http://img1.qunarzz.com/sight/p0/1807/c9/c9b31bce950940bda3.img.jpg_600x330_569a37b7.jpg"
+                :src="this.bannerImg"
             />
             <div class="banner-info">
                 <div class="banner-title">
-                    常州恐龙园（AAAAA景区）
+                    {{this.sightName}}
                 </div>
                 <div class="banner-number"> 
                     <span class="iconfont banner-icon">
                         &#xe796;
                     </span>
-                    39
+                    {{this.bannerImgs.length}}
                 </div>
             </div>
         </div>
         <common-gallary 
-            :imgs="imgs" 
+            :imgs="bannerImgs" 
             v-show="showGallary"
             @close="handleGallaryClose"></common-gallary>
     </div>
@@ -29,11 +29,14 @@ import CommonGallary from 'common/gallary/Gallary'
 
 export default {
     name: 'DetailBanner',
+    props: {
+        sightName: String,
+        bannerImg: String,
+        bannerImgs: Array
+    },
     data () {
         return {
-            showGallary:false,
-            imgs: ['http://img1.qunarzz.com/sight/p0/1807/c9/c9b31bce950940bda3.img.jpg_r_800x800_375a5f0f.jpg',
-            'http://img1.qunarzz.com/sight/p0/1807/b3/b366356df3f4f44a3.img.jpg_r_800x800_07fb1909.jpg']
+            showGallary:false
         }
     },
     components: {
@@ -54,7 +57,7 @@ export default {
     .banner
         overflow hidden
         height 0
-        padding-bottom 55%
+        padding-bottom 53.4%
         position relative
         .banner-img
             width 100%
