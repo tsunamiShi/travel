@@ -23,6 +23,7 @@ export default {
         text-align center
         color #fff
         background $bgColor
+        font-size .32rem
         .backicon
             width .64rem
             position absolute
